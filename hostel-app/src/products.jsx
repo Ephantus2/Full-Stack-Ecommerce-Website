@@ -23,7 +23,7 @@ const products = [
             image : oppo,
             description : "OPPO A3x",
             offer: "free headphones and phone cover",
-            rating: "3",
+            rating: "3.5",
             price : 100
         },
         {
@@ -37,14 +37,14 @@ const products = [
             image : samsung,
             description : "SAMSUNG CALAXY A05",
             offer: "free bluetooth speaker",
-            rating: "2",
+            rating: "2.5",
             price : 200
         },
           {
             image : laptop1,
             description : "Hp Elitebook",
             offer: "free laptop bag and wireless mouse",
-            rating: "5",
+            rating: "4.5",
             price : 300
         },
           {
@@ -58,7 +58,7 @@ const products = [
             image : lg,
             description : "45-inch LG smart TV",
             offer: "free 6 months subscription",
-            rating: "5",
+            rating: "4.5",
             price : 600
         },
          {
@@ -79,21 +79,21 @@ const products = [
             image : iron,
             description : "fashion",
             offer: "10% discount",
-            rating: "3",
+            rating: "3.5",
             price: 30
         },
           {
             image : fashion,
             description : "fashion",
             offer: "5% discount",
-            rating: "2",
+            rating: "2.5",
             price: 15
         },
         {
             image : sneakers,
             description : "sneaker boots",
             offer: "free naivas shopping bag",
-            rating: "4",
+            rating: "4.5",
             price: 35
         },
         {

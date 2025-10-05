@@ -1,19 +1,31 @@
 import React from "react";
-import star_rating_0 from "./assets/star-rating-0.png";
-//import star_rating_0.5 from "./assets/star-rating-0.5.png";
-import star_rating_1 from "./assets/star-rating-1.png";
-//import star_rating_1.5 from "./assets/star-rating-1.5.png";
-import star_rating_2 from "./assets/star-rating-2.png";
-//import star_rating_2.5 from "./assets/star-rating-2.5.png";
-import star_rating_3 from "./assets/star-rating-3.png";
-//import star_rating_3.5 from "./assets/star-rating-3.5.png";
-import star_rating_4 from "./assets/star-rating-4.png";
-//import star_rating_4.5 from "./assets/star-rating-4.5.png";
-import star_rating_5 from "./assets/star-rating-5.png";
+import star_rating_00 from "./assets/star-rating-0.png";
+import star_rating_05 from "./assets/half-star-rating.png";
+import star_rating_10 from "./assets/star-rating-1.png";
+import star_rating_15 from "./assets/one-half-star.png";
+import star_rating_20 from "./assets/star-rating-2.png";
+import star_rating_25 from "./assets/two-half-star.png";
+import star_rating_30 from "./assets/star-rating-3.png";
+import star_rating_35 from "./assets/three-half-star.png";
+import star_rating_40 from "./assets/star-rating-4.png";
+import star_rating_45 from "./assets/four-half-star.png";
+import star_rating_50 from "./assets/star-rating-5.png";
 
 function ProductsCard(props){
 
-    let srcs = [star_rating_0,star_rating_1,star_rating_2,star_rating_3,star_rating_4,star_rating_5]
+    let srcs = {
+        "0" : star_rating_00,
+        "0.5" : star_rating_05,
+        "1" : star_rating_10,
+        "1.5" : star_rating_15,
+        "2" : star_rating_20,
+        "2.5" : star_rating_25,
+        "3" : star_rating_30,
+        "3.5" : star_rating_35,
+        "4" : star_rating_40,
+        "4.5" : star_rating_45,
+        "5": star_rating_50
+    }
     
     return(
         

@@ -1,5 +1,5 @@
 import naivas_logo from "./assets/naivas-logo.jpg";
-import search_icon from "./assets/search-icon.png";
+import search_icon from "./assets/search-line-icon.png";
 import cart_icon from "./assets/cart-icon.png"
 function Header(){
     return(
