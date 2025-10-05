@@ -1,0 +1,174 @@
+.section-header h2, .section-header h5{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(90deg,hsl(120, 100%, 15%), hsla(14, 85%, 57%, 1));
+    color: transparent;
+    background-clip: text;
+
+}
+.section-header h2{
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+.section-header h5{
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    max-width: 1280px;
+    margin: 0;
+}
+
+.products-card{
+    border-radius: 10px;
+    margin-bottom: 3px;
+    background-color: white;
+   
+}
+.products-card h4{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 6px 0 6px 3px;
+}
+.products-card p{
+    color: rgb(62, 60, 60);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     margin: 0 0 6px 3px;
+}
+
+.products{
+  
+   width: 100%;
+   background-color: hsl(120, 100%, 15%);
+    max-width: 1280px;
+    box-shadow: 3px 3px 6px hsla(0, 0%, 0%,0.2), -3px -3px 6px hsla(0, 0%, 0%,0.2);
+    border-radius: 10px;
+    padding: 5px;
+
+    
+}
+.products-section{
+    padding: 10px;
+     position: relative;
+    top: 70px;
+}
+ 
+@media(min-width : 600px) and (max-width: 900px){
+    .products{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row: 1fr 1fr;
+        row-gap: 5px;
+        column-gap: 5px;
+    }
+}
+
+@media(min-width : 900px) and (max-width: 1280px){
+    .products{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-row: 1fr 1fr 1fr 1fr;
+        row-gap: 5px;
+        column-gap: 5px;
+    }
+}
+
+
+
+.photo{
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    margin-top: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.rating{
+    width: 50%;
+    height: 6%;
+    object-fit: contain;
+    display: block;
+}
+.products-card button{
+    background-color: hsla(14, 85%, 57%, 1);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+    transition: backgroung-color 2s;
+    width: 80%;
+
+}
+.add-button-div{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.products-card button:hover{
+    background-color: hsla(14, 85%, 37%, 1);
+}
+
+.header-container{
+    display: flex;
+    width: 100%;
+    flex: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: hsl(120, 100%, 15%);
+    position: fixed;
+    z-index: 2;
+}
+
+.input-div input{
+    flex: 1;
+    min-width: 150px;
+    height: clamp(45px, 2vw, 65px);
+    border: 2px solid hsla(14, 85%, 57%, 1);
+    border-radius: 5px;
+    color:  hsla(14, 85%, 37%, 1);
+}
+
+.naivas-div{
+    width: clamp(120px, 3vw, 150px);
+}
+
+.cart-div{
+     width: clamp(70px, 3vw, 150px);
+}
+
+.search-icon{
+    width: 30px;
+    height: 35px;
+}
+
+.naivas-icon{
+    width: 17vw;
+    height: 70px;
+}
+
+.cart-icon{
+    width: 50px;
+    height: 50px;
+    background: none;
+}
+.input-div{
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+     flex: 1;
+}
+.header-container button{
+    border: 2px solid hsla(14, 85%, 57%, 1);
+}
+.cart-button{
+    border-radius: 10px;
+}
+.search-button{
+    margin-left: -2px;
+    border-radius: 5px;
+}
