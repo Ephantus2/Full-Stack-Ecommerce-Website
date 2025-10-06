@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import ProductsCard from "./ProductsCard.jsx";
 import SectionHeader from "./SectionHeader.jsx";
 import oppo from './assets/IMG-20250828-WA0035.jpg';
@@ -17,6 +18,24 @@ import lyons from "./assets/IMG-20250829-WA0011.jpg";
 
 
 function Products(){
+  const [cart, setCart] = useState([])
+
+  const addToCart = (productName) => {
+    setCart(c => {
+      const existingItem = c.find(item => item.productName == productName);
+      if(existingItem){
+        return c.map(item => {
+          return item.productName == productName ? {...item, quantity: item.quantity + 1} : item;
+        })
+      }else{
+        return [...c, {productName, quantity: 1}]
+      }
+    })
+  }
+
+  useEffect(() => {
+    console.log(cart)
+  }, [cart])
     
 const products = [
         {
@@ -119,6 +138,8 @@ const products = [
             offer = {product.offer}
             price = {product.price}
             rating = {product.rating}
+
+            addToCart = {addToCart}
             />
         ))}
         </div>

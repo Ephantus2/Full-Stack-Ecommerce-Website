@@ -16,6 +16,7 @@
 *{
     box-sizing: border-box;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -101,6 +102,7 @@ body{
     margin-bottom: 10px;
     transition: backgroung-color 2s;
     width: 80%;
+    cursor: pointer;
 
 }
 .add-button-div{
@@ -118,7 +120,6 @@ body{
     width: 100%;
     flex: row;
     align-items: center;
-    justify-content: space-between;
     background-color: hsl(120, 100%, 15%);
     position: fixed;
     z-index: 2;
@@ -134,11 +135,16 @@ body{
 }
 
 .naivas-div{
-    width: clamp(120px, 3vw, 150px);
+    width: clamp(230px, 3vw, 240px);
+    margin-right: auto;
+    align-self: stretch;
+    background-color: hsla(14, 85%, 57%, 1);
 }
 
 .cart-div{
      width: clamp(70px, 3vw, 150px);
+     position: relative;
+     margin-right: 20px;
 }
 
 .search-icon{
@@ -149,6 +155,7 @@ body{
 .naivas-icon{
     width: 17vw;
     height: 70px;
+
 }
 
 .cart-icon{
@@ -159,8 +166,9 @@ body{
 .input-div{
     display: flex;
     align-items: center;
-    max-width: 600px;
+    max-width: 700px;
      flex: 1;
+     margin: 0 20px;
 }
 .header-container button{
     border: 2px solid hsla(14, 85%, 57%, 1);
@@ -171,4 +179,50 @@ body{
 .search-button{
     margin-left: -2px;
     border-radius: 5px;
+}
+.cart-count{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: hsla(14, 85%, 57%, 1);
+    padding: 1px 3px;
+    border-radius: 50%;
+    border: 2px solid hsl(120, 100%, 15%);
+    color: white;
+    font-size: 1.1rem;
+}
+
+.orders a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.orders span{
+    font-weight: bold;
+}
+.orders button{
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 5px;
+    transition: border-color 0.3s ease;
+}
+.orders button:hover{
+    border-color:hsla(14, 85%, 57%, 1);
+}
+.orders{
+    max-width: 130px;
+    margin: 0 20px;
+}
+.others{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+input::placeholder{
+    color: hsl(120, 100%, 15%);
+    font-size: 1.3rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-weight: bold;
 }

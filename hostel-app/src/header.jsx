@@ -10,11 +10,17 @@ function Header(){
             <div className="input-div">
                 <input
                 type="text"
-                placeholder="serch category"/>
+                placeholder="search category"/>
                 <button className="search-button"><img className="search-icon" src ={search_icon}/></button>
             </div>
+            <div className="others">
+            <div className="orders">
+                <button><a href="orders">Returns<br/><span>& Orders</span></a></button>
+            </div>
             <div className="cart-div">
-                <button className="cart-button"><img className="cart-icon" src={cart_icon}/></button>
+                <button className="cart-button"><a href = "cart.html"><img className="cart-icon" src={cart_icon}/></a></button>
+                <h4 className="cart-count">9+</h4>
+            </div>
             </div>
         </div>
     )
