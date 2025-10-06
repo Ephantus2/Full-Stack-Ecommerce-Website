@@ -1,4 +1,4 @@
-.section-header h2, .section-header h5{
+.section-header h2, .section-header h5,.review-orders{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
     background: linear-gradient(90deg,hsl(120, 100%, 15%), hsla(14, 85%, 57%, 1));
@@ -28,6 +28,8 @@ body{
     border-radius: 10px;
     margin-bottom: 3px;
     background-color: white;
+    display: flex;
+    flex-direction: column;
    
 }
 .products-card h4{
@@ -40,7 +42,7 @@ body{
      margin: 0 0 6px 3px;
 }
 
-.products{
+.products, .cart-container section{
   
    width: 100%;
    background-color: hsl(120, 100%, 15%);
@@ -51,7 +53,7 @@ body{
 
     
 }
-.products-section{
+.products-section,.cart-container{
     padding: 10px;
      position: relative;
     top: 70px;
@@ -108,7 +110,7 @@ body{
 .add-button-div{
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: auto;
 }
 
 .products-card button:hover{
@@ -225,4 +227,91 @@ input::placeholder{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     font-weight: bold;
+}
+.cart-orders-section{
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    max-height: 50vh;
+    padding: 15px;
+}
+.cart-image-container{
+    height: 100%;
+    width: 200px;
+}
+.cart-image-container img{
+    width: 100%;
+    margin:0 10px;
+}
+.cart-container-div{
+    display: flex;
+    gap: 10px;
+}
+.section-1{
+    
+    flex: 4;
+}
+
+.section-2{
+    flex: 1;
+}
+.total-container{
+    height: 300px;
+    color: white;
+    width: 100%;
+}
+.total-container button{
+    background-color: hsla(14, 85%, 57%, 1);
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    font-size: 1.1em;
+    width: 75%;
+    margin: 25px 0 0 32px;
+    cursor: pointer;
+}
+.total-container p, .total-container h1{
+    margin-bottom: 20px;
+
+}
+.total-container span{
+    margin-right: 5px;
+    margin-left: auto;
+}
+.total-container h1{
+    margin-top: 15px;
+    color: hsla(14, 85%, 57%, 1);
+}
+.div2, .div3{
+    flex: 1;
+    margin-left: 20px;
+}
+
+.div3 input{
+    margin: 10px;
+    
+}
+.div3 p, .div3 label,.div2 p, .div2 h1{
+   font-family: Arial, Helvetica, sans-serif;
+font-size: 1.1rem;
+margin-top: 10px;
+color: hsla(0, 0%, 0%, 0.8);
+
+}
+
+.div2 button{
+    background-color: transparent;
+    font-size: 1.1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: hsl(240, 100%, 60%);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 10px;
+    margin-top: 15px;
+    transition: color .3s ease;
+}
+.div2 button:hover{
+    color: hsla(14, 85%, 57%, 1);
 }

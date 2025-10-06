@@ -14,7 +14,14 @@ import sneakers from './assets/IMG-20250901-WA0024.jpg';
 import leather from "./assets/IMG-20250901-WA0017.jpg";
 import lg from "./assets/IMG-20250829-WA0009.jpg";
 import lyons from "./assets/IMG-20250829-WA0011.jpg";
-
+import cooker from "./assets/cooker.jpg";
+import coffee_table from "./assets/coffeetable2.jpg";
+import ceiling_fan from "./assets/fan.jpg";
+import table from "./assets/coffeetable1.jpg";
+import flash_drive from "./assets/flashdisk.jpg";
+import coffe_cups from "./assets/pinkcups.jpg";
+import coffee_mugs from "./assets/bluecups.jpg";
+import duvet from "./assets/duvet.jpg"
 
 
 function Products(){
@@ -127,6 +134,62 @@ const products = [
             offer: "free two-pairs socks",
             rating: "5",
             price: 45
+        },
+        {
+            image : cooker,
+            description : "Lyons GK-012 Stainless Steel Double Burner Gas Cooker Table Top Gas Stove -Grey",
+            offer: "1 Year WRTY",
+            rating: "3.5",
+            price : 150
+        },
+        {
+            image : coffee_table,
+            description : "Zippy Elegant Coffee Table",
+            offer: "1 Year WRTY",
+            rating: "4.5",
+            price : 650
+        },
+         {
+            image : ceiling_fan,
+            description : "Roch RCF-2404, 24 Ceiling Fan - Ivory And Brown (1YR WRTY)",
+            offer: "1 Year WRTY",
+            rating: "4.5",
+            price : 150
+        },
+         {
+            image : table,
+            description : "Coffee table",
+            offer: "1 Year WRTY",
+            rating: "5",
+            price : 750
+        },
+        {
+            image : flash_drive,
+            description : "128GB usb Flash Drive metal hook with 3 in 1 OTG adapter usb cable",
+            offer: "free 64GB sd card",
+            rating: "4",
+            price : 60
+        },
+         {
+            image : coffe_cups,
+            description : "Sundabest Pink Coffee Cups, Set Of 6 ",
+            offer: "4 free cups",
+            rating: "5",
+            price : 40
+        },
+        {
+            image : coffee_mugs,
+            description : "Nice One Set of 6pcs 370ML Coffee Mugs High Quality Porcelain Milk Tea Cups",
+            offer: "3 free cups",
+            rating: "4",
+            price : 35
+        },
+         {
+            image : duvet,
+            description : "High quality white duvet blanket, 1 bedsheet 2 pillowcases",
+            offer: "3 free pillows",
+            rating: "5",
+            price : 200
         }
     ]
     return(
