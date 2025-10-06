@@ -19,6 +19,7 @@ import lyons from "./assets/IMG-20250829-WA0011.jpg";
 
 function Products(){
   const [cart, setCart] = useState([])
+  const [cartQuantity, setCartQuantity] = useState(0)
 
   const addToCart = (productName) => {
     setCart(c => {
@@ -33,8 +34,13 @@ function Products(){
     })
   }
 
+  
+
   useEffect(() => {
-    console.log(cart)
+    const totalQuantity = cart.reduce((sum, current) => sum + current.quantity, 0)
+    setCartQuantity(totalQuantity)
+    localStorage.setItem("cartQuantity", totalQuantity)
+    window.dispatchEvent(new Event("cartQuantityChanged"))
   }, [cart])
     
 const products = [
