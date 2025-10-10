@@ -30,7 +30,7 @@ function ProductsCard(props){
     }
     
     function handleCart(){
-        props.addToCart(props.description)
+        props.addToCart()
     }
  
    

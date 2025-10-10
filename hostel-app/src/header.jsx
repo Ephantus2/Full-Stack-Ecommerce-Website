@@ -2,21 +2,11 @@ import { useState,useEffect } from "react";
 import naivas_logo from "./assets/naivas-logo.jpg";
 import search_icon from "./assets/search-line-icon.png";
 import cart_icon from "./assets/cart-icon.png"
-function Header(){
+function Header(props){
     const [cartQuantity, setCartQuantity] = useState(0)
     useEffect(() => {
-         const updateCartQuantity = () => {
-            const stored = localStorage.getItem("cartQuantity")
-            setCartQuantity(parseInt(stored) || 0)
-        }
-
-        updateCartQuantity();
-
-        window.addEventListener("cartQuantityChanged", updateCartQuantity)
-
-        return () => {
-            window.removeEventListener("cartQuantityChanged", updateCartQuantity)
-        }}, []
+        setCartQuantity(props.cartQuantity)
+         }
     )
     return(
         <div className="header-container">

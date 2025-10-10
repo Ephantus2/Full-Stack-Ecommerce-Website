@@ -1,26 +1,30 @@
-import screen from "./assets/IMG-20250829-WA0009.jpg"
+
 import { useState } from "react";
 
-function CartProducts(){
+function CartProducts(props){
     const [shipping, setShipping] = useState("delivery")
 
     const handleShipping = (e) => {
         setShipping(e.target.value)
     }
+    let cart = props.cart;
     return(
         <>
-        <div className="cart-orders-section">
+        {
+        cart.map((item, index) => (
+            <li key={index}>
+                <div className="cart-orders-section">
         <div className="cart-image-container">
-            <div><img src={screen}/></div>
+            <div><img src={item.image}/></div>
         </div>
         <div className="div2">
-          <h3>45-inch LG smart TV</h3>
-          <h3>$50</h3>
+          <h3>{item.productName}</h3>
+          <h3>{item.price}</h3>
           <div>
-            <p>quantity: 1</p>
+            <p>quantity: {item.quantity}</p>
          </div>
          <button>update</button>
-         <button>delete</button>
+         <button onClick={() => props.delete(item)}>delete</button>
         </div>
         <div className="div3">
             <label>
@@ -34,6 +38,11 @@ function CartProducts(){
             <p>shipping : {shipping}</p>
         </div>
         </div>
+
+            </li>
+        
+            ))
+        }
         
         </>
     )
