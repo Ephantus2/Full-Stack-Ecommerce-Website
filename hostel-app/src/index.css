@@ -330,3 +330,50 @@ color: hsla(0, 0%, 0%, 0.8);
 .div2 button:hover{
     color: hsla(14, 85%, 57%, 1);
 }
+
+.submit-div{
+    background-color: white;
+    width: 100%;
+    box-shadow: 4px 4px 6px hsla(0, 0%, 0%,0.2), -4px -4px 6px hsla(0, 0%, 0%,0.2);
+    padding: 10px;
+    position: relative;
+}
+.submit-div h2{
+   color: hsl(120, 100%, 15%);
+   text-align: center;
+}
+.submit-div img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid hsl(120, 100%, 15%);
+    background: transparent;
+}
+.submit-div div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.submit-div button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    font-size: 1.4rem;
+    padding: 1px 10px;
+    transition: background-color 0.1s ease;
+    transition: color 0.1s ease;
+
+}
+.submit-div button:hover{
+    background-color: red;
+    color: white;
+}
+
+.visible{
+    display: block;
+}
+.hidden{
+    display: none;
+}
+

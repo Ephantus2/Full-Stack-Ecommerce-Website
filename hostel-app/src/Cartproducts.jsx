@@ -1,12 +1,8 @@
 
-import { useState } from "react";
+
 
 function CartProducts(props){
-    const [shipping, setShipping] = useState("delivery")
-
-    const handleShipping = (e) => {
-        setShipping(e.target.value)
-    }
+    
     let cart = props.cart;
     return(
         <>
@@ -28,14 +24,14 @@ function CartProducts(props){
         </div>
         <div className="div3">
             <label>
-                <input type="radio" value={"delivery"} onChange={handleShipping} checked={shipping == "delivery" ? true : false}/>
+                <input type="radio" value={"delivery"} onChange={props.handleShipping} checked={props.shipping == "delivery" ? true : false}/>
                 delivery
             </label><br/>
             <label>
-                <input type="radio" value={"pick up"} onChange={handleShipping} checked={shipping == "pick up" ? true : false}/>
+                <input type="radio" value={"pick up"} onChange={props.handleShipping} checked={props.shipping == "pick up" ? true : false}/>
                 pick up
             </label>
-            <p>shipping : {shipping}</p>
+            <p>shipping : {props.shipping}</p>
         </div>
         </div>
 
