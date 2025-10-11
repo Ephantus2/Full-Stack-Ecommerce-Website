@@ -31,6 +31,7 @@ function App() {
   return storedCart ? JSON.parse(storedCart) : [];
 } );
   const [cartQuantity, setCartQuantity] = useState(0)
+  const [totaPrice, setTotalPrice] = useState(0)
 
   const addToCart = (product) => {
     setCart(c => {
@@ -68,9 +69,14 @@ function App() {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
     const totalQuantity = cart.reduce((sum, current) => sum + current.quantity, 0)
-    setCartQuantity(totalQuantity)
+    setCartQuantity(totalQuantity);
+    const total = cart.reduce((sum, current) => sum + (current.price * current.quantity), 0);
+    setTotalPrice(total)
     
   }, [cart])
+
+    
+
 
   const products = [
         {
@@ -225,7 +231,7 @@ function App() {
             products = {products}
             addToCart = {addToCart}
         />}/>
-        <Route path = "/cart" element = {<Cart cart={cart} delete = {deleteProduct}/>}/>
+        <Route path = "/cart" element = {<Cart totalQuantity={cartQuantity} totalPrice={totaPrice} cart={cart} delete = {deleteProduct}/>}/>
       </Routes>
      </Router>
     </>

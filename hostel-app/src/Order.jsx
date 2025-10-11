@@ -1,10 +1,10 @@
  
 
- function Order(){
+ function Order(props){
     return(
         <>
           <div className="total-container">
-            <p>Items(1) :<span>$50</span></p>
+            <p>Items({props.totalQuantity}) :<span>${props.totalPrice}</span></p>
             <p>Delivery & Shipping :<span>$5</span></p>
             <p>Total before tax : <span>$55</span></p>
             <p>Estimated tax(10%) : <span>$5.5</span></p>

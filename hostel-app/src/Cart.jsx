@@ -11,7 +11,7 @@ function Cart(props){
                 <CartProducts cart={props.cart} delete={props.delete}/>
             </section>
             <section className="section-2">
-                <Order/>
+                <Order totalQuantity={props.totalQuantity} totalPrice={props.totalPrice} />
             </section>
             </div>
             
