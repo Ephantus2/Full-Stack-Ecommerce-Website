@@ -20,7 +20,7 @@ function Cart(props){
             </section>
             <section className="section-2">
                 <Order setVisible={setVisible} shipping={shipping} totalQuantity={props.totalQuantity} totalPrice={props.totalPrice} />
-                <div className={` ${visible ? 'visible' : 'hidden'}`}>
+                <div className={` ${ props.totalQuantity > 0 && visible ? 'visible' : 'hidden'}`}>
                    <Submitted />
                 </div>
                 

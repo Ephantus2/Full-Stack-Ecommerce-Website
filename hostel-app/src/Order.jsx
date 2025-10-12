@@ -7,13 +7,13 @@
     return(
         <>
           <div className="total-container">
-            <p>Items({props.totalQuantity}) :<span>${props.totalPrice}</span></p>
-            <p>Delivery & Shipping :<span>${ shippingPrice }</span></p>
-            <p>Total before tax : <span>${ taxable }</span></p>
-            <p>Estimated tax(10%) : <span>${taxed}</span></p>
+            <p>Items({props.totalQuantity}) : &nbsp;   <span>${props.totalPrice}</span></p>
+            <p>Delivery & Shipping : &nbsp;  <span>${ shippingPrice }</span></p>
+            <p>Total before tax : &nbsp;  <span>${ taxable }</span></p>
+            <p>Estimated tax(10%) : &nbsp;   <span>${taxed}</span></p>
             <hr/>
-            <h1>Total cost: <span>${taxable + taxed}</span></h1>
-            <button onClick={() => props.setVisible(true)}>Place Order</button>
+            <h1>Total cost: &nbsp;<span>${taxable + taxed}</span></h1>
+            <button onClick={() => props.totalQuantity > 0 ? props.setVisible(true) : props.setVisible(false)}>Place Order</button>
           </div>
         </>
     )

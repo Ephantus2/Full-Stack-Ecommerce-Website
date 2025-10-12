@@ -15,7 +15,7 @@ function CartProducts(props){
         </div>
         <div className="div2">
           <h3>{item.productName}</h3>
-          <h3>{item.price}</h3>
+          <h3>price: ${item.price}</h3>
           <div>
             <p>quantity: {item.quantity}</p>
          </div>
