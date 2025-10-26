@@ -3,6 +3,7 @@ import Header from "./header";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cart from "./Cart";
 import { useState, useEffect } from "react";
+import Register from "./Register";
 /*import oppo from './assets/IMG-20250828-WA0035.jpg';
 import redmi from './assets/IMG-20250830-WA0019.jpg';
 import samsung from "./assets/IMG-20250831-WA0073.jpg";
@@ -236,24 +237,34 @@ function App() {
 
   return (
     <>
-      <Header cartQuantity={cartQuantity} />
+
       <Router>
         <Routes>
           <Route
             path="/"
-            element={<Products products={products} addToCart={addToCart} />}
+            element={
+              <>
+              <Header cartQuantity={cartQuantity} />
+            <Products products={products} addToCart={addToCart} />
+           </>
+          }
           />
           <Route
             path="/cart"
             element={
+              <>
+              <Header cartQuantity={cartQuantity} />
               <Cart
                 totalQuantity={cartQuantity}
                 totalPrice={totaPrice}
                 cart={cart}
                 delete={deleteProduct}
               />
+              </>
             }
           />
+          <Route path="auth/login" element={<Register />} />
+          <Route path="auth/register" element={<Register />} />
         </Routes>
       </Router>
     </>
