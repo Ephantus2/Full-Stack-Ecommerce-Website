@@ -1,10 +1,78 @@
 import styles from "./Register.module.css";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "./axios";
 
 const Register = () => {
   const [register, setRegister] = useState(false);
+  const [registerData, setRegisterData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirm_password: "",
+  });
+
+  const [loginData, setLoginData] = useState({
+    username: '',
+    password: ''
+  })
+
+  const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+
+  const handleLoginChange = (e) => {
+    setLoginData({...loginData, [e.target.name]: e.target.value})
+  }
+
+  const handleRegisterChange = (e) => {
+    setRegisterData({ ...registerData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" });
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault()
+    try{
+      const response = await axios.post('/accounts/login/', loginData, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      const m = await response.data.message
+      setMessage(m)
+      setTimeout(() => {
+       navigate('/')
+      }, 1000)
+    }catch(error){
+       if(error.response && error.response.data){
+        setErrors(error.response.data)
+       }else{
+        setMessage('something went wrong')
+       }
+    }
+  }
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/accounts/register/", registerData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      setMessage(await response.data.message);
+      //setTimeout(() => {
+      //  navigate('/auth/login')
+      //}, 1000)
+    } catch (error) {
+      if (error.response && error.response.data) {
+        setErrors(error.response.data);
+      } else {
+        setMessage("something went wrong");
+      }
+    }
+  };
+
   const navigateToRegister = () => {
     navigate("/auth/register");
     setRegister(true);
@@ -58,10 +126,20 @@ const Register = () => {
                 SignUp
               </button>
             </div>
-            <form>
-              <input type="text" placeholder="username" />
-              <input type="password" placeholder="password" />
+            <form onSubmit={handleLogin}>
+              <input type="text" placeholder="username" name="username" value={loginData.username} onChange={handleLoginChange}/>
+              <input type="password" placeholder="password" name="password" value={loginData.password} onChange={handleLoginChange} />
               <p>Forgot Password?</p>
+               {message && (
+                <div className={styles.errors} style={{ color: "green" }}>
+                  {message}
+                </div>
+              )}
+              {errors.non_field_errors && (
+                <div className={styles.errors} style={{ color: "red" }}>
+                  {errors.non_field_errors[0]}
+                </div>
+              )}
               <button type="submit">LogIn</button>
             </form>
           </div>
@@ -88,11 +166,65 @@ const Register = () => {
                 SignUp
               </button>
             </div>
-            <form>
-              <input type="text" placeholder="username" />
-              <input type="email" placeholder="email" />
-              <input type="password" placeholder="password" />
-              <input type="password" placeholder="confirm password" />
+            <form onSubmit={handleRegister}>
+              <input
+                type="text"
+                placeholder="username"
+                name="username"
+                value={registerData.username}
+                onChange={handleRegisterChange}
+              />
+              {errors.username && (
+                <div className={styles.errors} style={{ color: "red" }}>
+                  {errors.username[0]}
+                </div>
+              )}
+              <input
+                type="email"
+                placeholder="email"
+                name="email"
+                value={registerData.email}
+                onChange={handleRegisterChange}
+              />
+              {errors.email && (
+                <div className={styles.errors} style={{ color: "red" }}>
+                  {errors.email[0]}
+                </div>
+              )}
+              <input
+                type="password"
+                placeholder="password"
+                name="password"
+                value={registerData.password}
+                onChange={handleRegisterChange}
+              />
+              {errors.password && (
+                <div className={styles.errors} style={{ color: "red" }}>
+                  {errors.password[0]}
+                </div>
+              )}
+              <input
+                type="password"
+                placeholder="confirm password"
+                name="confirm_password"
+                value={registerData.confirm_password}
+                onChange={handleRegisterChange}
+              />
+              {errors.confirm_password && (
+                <div className={styles.errors} style={{ color: "red" }}>
+                  {errors.confirm_password[0]}
+                </div>
+              )}
+              {errors.non_field_errors && (
+                <div className={styles.errors} style={{ color: "red" }}>
+                  {errors.non_field_errors[0]}
+                </div>
+              )}
+              {message && (
+                <div className={styles.errors} style={{ color: "green" }}>
+                  {message}
+                </div>
+              )}
               <button type="submit">Register</button>
             </form>
           </div>

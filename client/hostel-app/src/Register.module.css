@@ -1,7 +1,7 @@
 .container{
     display: flex;
     width: 500px;
-    max-height: 490px;
+   /* max-height: 490px; */
     margin: auto;
     border-radius: 20px;
     box-shadow: 4px 4px 8px hsla(120, 100%, 15%, 0.1), -4px -4px 8px hsla(120, 100%, 15%, 0.1);
@@ -182,4 +182,8 @@ display: block;
 
 .none{
 display: none;
+}
+.errors{
+    margin-bottom: 10px;
+    text-align: center;
 }

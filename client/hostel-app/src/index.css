@@ -116,7 +116,23 @@ body{
 .products-card button:hover{
     background-color: hsla(14, 85%, 37%, 1);
 }
+.hamberger-menu img{
+    width: 50px;
+    height: 50px;
+}
 
+.hamberger-menu button{
+    width: auto;
+    padding: 0;
+    background-color: hsla(14, 85%, 57%, 1);
+}
+.hamberger-menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsla(14, 85%, 57%, 1);
+    margin-left: 10px;
+}
 .header-container{
     display: flex;
     width: 100%;
@@ -217,6 +233,7 @@ body{
     margin: 0 20px;
 }
 .others{
+    margin-right: 10px;
     margin-left: auto;
     display: flex;
     align-items: center;
@@ -377,3 +394,84 @@ color: hsla(0, 0%, 0%, 0.8);
     display: none;
 }
 
+/* hamberger */
+
+.hamberger1{
+    display: flex;
+    flex-direction: column;
+    background-color: hsl(120, 100%, 15%);
+    height: 500px;
+    width: 300px;
+   /* transform: translateX(100%); */
+   transition: transform 1s ease;
+   z-index: 30;
+}
+
+.hamberger{
+    display: flex;
+    justify-content: end;
+    position: fixed;
+    top: 75px;
+    right: 0;
+    z-index: 20;
+    width: 100vw;
+}
+
+.button_1{
+    float: left;
+    width: 40px;
+    background: none;
+    color: white;
+    font-size: 1.2rem;
+    border: 1.5px solid white;
+    transition: background 0.1 ease;
+}
+.button_1:hover{
+    background: hsl(120, 100%, 10%);
+}
+
+.h_div{
+    height: 40px;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    color: white;
+}
+.h_div1{
+    border-top: 1px solid hsla(0, 0%, 100%, 0.5);
+}
+
+.h_div a{
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.logout{
+    background: transparent;
+    color: white;
+    border: none;
+    margin-left: 6px;
+}
+
+.overlay2{
+    width: 100vw;
+    height: 100vw;
+    background-color: hsla(0, 0%, 100%, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.show_hamberger{
+    transform: translateX(0);
+    display: block;
+}
+
+.hide_hamberger{
+    transform: translateX(100%);
+    display: none;
+}
