@@ -438,8 +438,14 @@ color: hsla(0, 0%, 0%, 0.8);
     justify-content: left;
     color: white;
 }
+.h_div2{
+    height: 30px;
+}
 .h_div1{
     border-top: 1px solid hsla(0, 0%, 100%, 0.5);
+}
+.h_div:hover{
+    background: hsl(120, 100%, 10%);
 }
 
 .h_div a{

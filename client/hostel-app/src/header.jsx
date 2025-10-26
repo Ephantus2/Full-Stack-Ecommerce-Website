@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import naivas_logo from "./assets/naivas-logo.jpg";
 import search_icon from "./assets/search-line-icon.png";
 import cart_icon from "./assets/cart-icon.png";
+import axios from './axios'
+import { useNavigate } from "react-router-dom";
 
 function Header(props) {
   const [cartQuantity, setCartQuantity] = useState(0);
@@ -9,6 +11,8 @@ function Header(props) {
   useEffect(() => {
     setCartQuantity(props.cartQuantity);
   }, [props.cartQuantity]);
+
+  const navigate = useNavigate()
 
   useEffect(()=>{
      if(hamberger){
@@ -21,6 +25,16 @@ function Header(props) {
       document.body.style.overflow = 'auto'
      }
   }, [hamberger])
+
+  const handleLogout = async () => {
+    try{
+    const response = await axios.post('/accounts/logout/');
+    alert('logout successfully')
+    navigate('/auth/login')
+    }catch(err){
+      alert('failed to logout')
+    }
+  }
 
   return (
     <>
@@ -69,9 +83,11 @@ function Header(props) {
             hamberger ? "show_hamberger" : "hide_hamberger"
           }`}
         >
+          <div className="h_div2">
           <button className="button_1" onClick={() => setHamberger(false)}>
             x
           </button>
+          </div>
           <div className="h_div h_div1">
             <a>Home</a>
           </div>
@@ -84,7 +100,7 @@ function Header(props) {
           <div className="h_div">
             <a>orders</a>
           </div>
-          <div className="h_div">
+          <div className="h_div" onClick={handleLogout}>
             <button className="logout">Logout</button>
           </div>
         </div>
