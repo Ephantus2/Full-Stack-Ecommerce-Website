@@ -396,6 +396,16 @@ color: hsla(0, 0%, 0%, 0.8);
 
 /* hamberger */
 
+.visible2{
+    display: block;
+    pointer-events: all;
+}
+
+.hidden2{
+    display: none;
+    pointer-events: none;
+}
+
 .hamberger1{
     display: flex;
     flex-direction: column;
@@ -452,6 +462,7 @@ color: hsla(0, 0%, 0%, 0.8);
     margin-left: 10px;
     text-decoration: none;
     color: white;
+    width: 100%;
 }
 
 .logout{
@@ -474,10 +485,11 @@ color: hsla(0, 0%, 0%, 0.8);
 
 .show_hamberger{
     transform: translateX(0);
-    display: block;
+    pointer-events: all;
 }
 
 .hide_hamberger{
     transform: translateX(100%);
-    display: none;
+    pointer-events: none;
 }
+

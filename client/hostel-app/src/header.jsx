@@ -77,7 +77,7 @@ function Header(props) {
           </div>
         </div>
       </div>
-      <div className={`hamberger ${hamberger ? "visible" : "hidden"}`}>
+      <div className={`hamberger ${hamberger ? "visible2" : "hidden2"}`} >
         <div
           className={`hamberger1 ${
             hamberger ? "show_hamberger" : "hide_hamberger"
@@ -89,16 +89,16 @@ function Header(props) {
           </button>
           </div>
           <div className="h_div h_div1">
-            <a>Home</a>
+            <a href="/">Home</a>
           </div>
           <div className="h_div">
-            <a>Products</a>
+            <a href="#products">Products</a>
           </div>
           <div className="h_div">
-            <a>Cart</a>
+            <a href="cart">Cart</a>
           </div>
           <div className="h_div">
-            <a>orders</a>
+            <a href="orders">orders</a>
           </div>
           <div className="h_div" onClick={handleLogout}>
             <button className="logout">Logout</button>

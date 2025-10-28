@@ -7,7 +7,7 @@ function Products(props){
  
     
 return(
-      <section className="products-section">
+      <section id="products" className="products-section">
         <SectionHeader
           title = "CHOOSE FROM OUR PRODUCTS"
           subtitle = "experience our exclusive offers"

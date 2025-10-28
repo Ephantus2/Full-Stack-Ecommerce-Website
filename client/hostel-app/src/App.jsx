@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cart from "./Cart";
 import { useState, useEffect } from "react";
 import Register from "./Register";
+import Returns from "./Returns";
 /*import oppo from './assets/IMG-20250828-WA0035.jpg';
 import redmi from './assets/IMG-20250830-WA0019.jpg';
 import samsung from "./assets/IMG-20250831-WA0073.jpg";
@@ -32,6 +33,10 @@ function App() {
   });
   const [cartQuantity, setCartQuantity] = useState(0);
   const [totaPrice, setTotalPrice] = useState(0);
+  const [orderCart, setOrderCart] = useState(() => {
+      let item = localStorage.getItem('order');
+      return item ? JSON.parse(item) : [];
+    })
 
   const addToCart = (product) => {
     setCart((c) => {
@@ -259,10 +264,19 @@ function App() {
                 totalPrice={totaPrice}
                 cart={cart}
                 delete={deleteProduct}
+                setCart={setCart}
               />
               </>
             }
           />
+          <Route path="orders/" element={
+            <>
+            <Header cartQuantity={cartQuantity} />
+            <Returns orderCart={orderCart}
+                    setOrderCart={setOrderCart}/>
+            </>
+           
+            } />
           <Route path="auth/login" element={<Register />} />
           <Route path="auth/register" element={<Register />} />
         </Routes>
