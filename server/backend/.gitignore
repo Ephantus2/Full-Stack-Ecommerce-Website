@@ -1,0 +1,36 @@
+# === PYTHON / DJANGO ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.log
+*.pot
+*.pyc
+db.sqlite3
+*.sqlite3
+media/
+staticfiles/
+.env
+.env.*
+
+# === VIRTUAL ENVIRONMENTS ===
+venv/
+env/
+.venv/
+
+# === MIGRATIONS (optional, keep if you want them) ===
+# Uncomment next line if you don’t want to track migration files
+# */migrations/
+
+# === MYSQL DATA ===
+# Never track local database files or dumps
+*.sql
+*.sql.gz
+mysql_data/
+mysql/
+data/
+dump.sql
+
+.DS_Store
+Thumbs.db

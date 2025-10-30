@@ -34,7 +34,7 @@ function Cart(props) {
             />
             <div
               className={` ${
-                props.totalQuantity > 0 && visible ? "visible" : "hidden"
+                /*props.totalQuantity > 0 &&*/ visible ? "visible" : "hidden"
               }`}
             >
               <Submitted />

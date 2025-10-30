@@ -22,11 +22,16 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    background-color: hsla(14, 85%, 57%, 1);
+    margin: 0 0 10px 0;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
 .ordersContainer3_1{
    margin: 10px;
    font-weight: bold;
    font-size: 1.1rem;
+   color: white;
 }
 .ordersContainer4{
     display: grid;

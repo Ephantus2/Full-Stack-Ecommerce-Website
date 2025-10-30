@@ -36,7 +36,7 @@ import React,{useEffect, useState} from "react";
         setOrderCart(prev => [...prev, {
           id: `#${str2[0]}${str2[1]}${str2[2]}${str2[3]}-${str2[4]}${str2[5]}${str2[6]}${str2[7]}-${str2[8]}${str2[9]}${str2[10]}${str2[11]}-${str2[12]}${str2[13]}${str2[14]}${str2[15]}`,
           product: cart2,
-          date: `${date}-${month}-${year} ${hours}:${minutes}`
+          date: `${date}-${month}-${year}  ${hours}:${minutes}`
         }])
         localStorage.removeItem('cart')
         setCart([])

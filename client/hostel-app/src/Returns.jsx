@@ -10,16 +10,22 @@ const Returns = (props) => {
            {orderCart.map((order, index) => (
             <div className={styles.ordersContainer2}>
                 <div className={styles.ordersContainer3}>
-                    <div className={styles.ordersContainer3_1}>{order.id}</div>
-                    <div className={styles.ordersContainer3_1}>{order.date}</div>
+                    <div className={styles.ordersContainer3_1}>
+                        <div>Order id:</div>
+                        <div>{order.id}</div>
+                        </div>
+                    <div className={styles.ordersContainer3_1}>
+                        <div>Order Date:</div>
+                        <div>{order.date}</div>
+                        </div>
                 </div>
                 <div className={styles.ordersContainer4}>
                     {order.product.map((p, index)=> (
                         <div className={styles.ordersContainer4_1}>
                             <div className={styles.divImg}>{p.productName}</div>
                             <div className={styles.divImg}><img src={p.image}/></div>
-                            <div className={styles.divImg}>{p.price}</div>
-                            <div className={styles.divImg}>{p.quantity}</div>
+                            <div className={styles.divImg}>Price: {p.price}</div>
+                            <div className={styles.divImg}>Quantity: {p.quantity}</div>
                         </div>
                     ))}
                 </div>
