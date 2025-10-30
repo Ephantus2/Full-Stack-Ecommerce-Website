@@ -34,3 +34,8 @@ dump.sql
 
 .DS_Store
 Thumbs.db
+
+venv/
+env/
+Lib/
+Scripts/
