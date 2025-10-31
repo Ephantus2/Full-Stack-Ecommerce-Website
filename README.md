@@ -53,6 +53,7 @@ ecommerce/
 ```bash
 git clone https://github.com/Ephantus2/Full-Stack-Ecommerce-Website.git
 cd ecommerce-react-django
+```
 
 ### 2. setup Backend
 
