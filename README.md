@@ -4,9 +4,9 @@ A full-stack e-commerce platform built with **React (frontend)** and **Django RE
 It supports user authentication, product management, shopping cart, and checkout functionality.
 
 ## 🖼️ Screenshots
-![Homepage Screenshot](server/screenshots/homepage.png)
+![Homepage Screenshot](server/screenshots/Homepage.png)
 ![Homepageup Screenshot](server/screenshots/Homepage2.png)
-![Menu screenshot](server/screenshots/Menu.png)
+![Menu screenshot](server/screenshots/menu.png)
 ![place_order Screenshot](server/screenshots/place_order.png)
 ![placed_order Screenshot](server/screenshots/placed_order.png)
 ![order summary Screenshot](server/screenshots/orders_summary.png)
