@@ -1,0 +1,44 @@
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework import status
+from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
+from .serializers import ProductSerializer, OrderSerializer
+from .models import Products, Order
+
+# class to get all products 
+class ProductsView(APIView):
+    #get all products from database
+    def get(self, request):
+        products = Products.objects.all()
+        serializedData = ProductSerializer(products, many=True)
+        return Response(serializedData.data, status=status.HTTP_200_OK)
+    
+    #create a new product
+    
+    def post(self, request):
+        data = request.data
+        serializedData = ProductSerializer(data=data)
+        if serializedData.is_valid():
+            serializedData.save()
+            return Response(serializedData.data, status=status.HTTP_200_OK)
+        return Response(serializedData.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+# class to get all products 
+class OrderView(APIView):
+    #get all products from database
+    def get(self, request):
+        order = Order.objects.select_related('user').prefetch_related('products').all()
+        serializedData = OrderSerializer(order, many=True)
+        return Response(serializedData.data, status=status.HTTP_200_OK)
+    
+    #create a new product
+    
+    def post(self, request):
+        data = request.data
+        serializedData = OrderSerializer(data=data)
+        if serializedData.is_valid():
+            serializedData.save()
+            return Response(serializedData.data, status=status.HTTP_200_OK)
+        return Response(serializedData.errors, status=status.HTTP_400_BAD_REQUEST)
