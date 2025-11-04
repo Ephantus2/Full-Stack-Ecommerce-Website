@@ -25,15 +25,16 @@ class ProductsView(APIView):
         return Response(serializedData.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
-# class to get all products 
+# class to get all orders
 class OrderView(APIView):
-    #get all products from database
+    #get all orders from the database
+    
     def get(self, request):
         order = Order.objects.select_related('user').prefetch_related('products').all()
         serializedData = OrderSerializer(order, many=True)
         return Response(serializedData.data, status=status.HTTP_200_OK)
     
-    #create a new product
+    #create a new orders
     
     def post(self, request):
         data = request.data

@@ -11,7 +11,7 @@ function CartProducts(props){
             <li key={index}>
                 <div className="cart-orders-section">
         <div className="cart-image-container">
-            <div><img src={item.image}/></div>
+            <div><img src={`http://127.0.0.1:8000${item.image}`}/></div>
         </div>
         <div className="div2">
           <h3>{item.productName}</h3>

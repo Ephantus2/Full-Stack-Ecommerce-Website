@@ -5,26 +5,7 @@ import Cart from "./Cart";
 import { useState, useEffect } from "react";
 import Register from "./Register";
 import Returns from "./Returns";
-/*import oppo from './assets/IMG-20250828-WA0035.jpg';
-import redmi from './assets/IMG-20250830-WA0019.jpg';
-import samsung from "./assets/IMG-20250831-WA0073.jpg";
-import laptop2 from "./assets/IMG-20250831-WA0069.jpg";
-import laptop1 from './assets/IMG-20250831-WA0071.jpg';
-import fridge from "./assets/IMG-20250831-WA0048.jpg";
-import fashion from './assets/IMG-20250901-WA0021.jpg';
-import iron from "./assets/IMG-20250831-WA0074.jpg";
-import sneakers from './assets/IMG-20250901-WA0024.jpg';
-import leather from "./assets/IMG-20250901-WA0017.jpg";
-import lg from "./assets/IMG-20250829-WA0009.jpg";
-import lyons from "./assets/IMG-20250829-WA0011.jpg";
-import cooker from "./assets/cooker.jpg";
-import coffee_table from "./assets/coffeetable2.jpg";
-import ceiling_fan from "./assets/fan.jpg";
-import table from "./assets/coffeetable1.jpg";
-import flash_drive from "./assets/flashdisk.jpg";
-import coffe_cups from "./assets/pinkcups.jpg";
-import coffee_mugs from "./assets/bluecups.jpg";
-import duvet from "./assets/duvet.jpg" */
+import axios from './axios'
 
 function App() {
   const [cart, setCart] = useState(() => {
@@ -94,7 +75,23 @@ function App() {
     setTotalPrice(total);
   }, [cart]);
 
-  const products = [
+  const [products, setProducts] = useState([])
+
+  const getProductsFromDb = async () => {
+    try{
+     const response = await axios.get('/store/products/')
+     const data = await response.data
+     setProducts(data)
+    }catch(err){
+      console.error(err)
+    }
+  }
+
+  useEffect(() => {
+    getProductsFromDb()
+  }, [])
+
+ /* const products = [
     {
       image: "/assets/IMG-20250828-WA0035.jpg",
       description: "OPPO A3x",
@@ -239,7 +236,7 @@ function App() {
       price: 200,
     },
   ];
-
+*/
   return (
     <>
 
