@@ -1,9 +1,12 @@
 import React from "react";
 import ProductsCard from "./ProductsCard.jsx";
 import SectionHeader from "./SectionHeader.jsx";
+import { useDispatch } from "react-redux";
+import { addToCart } from "./redux/cartSlice.js";
 
 
 function Products(props){
+  const dispatch = useDispatch()
  
     
 return(
@@ -22,7 +25,7 @@ return(
             price = {product.price}
             rating = {product.rating}
 
-            addToCart = {() => props.addToCart(product)}
+            addToCart = {() => dispatch(addToCart(product))}
             />
         ))}
         </div>

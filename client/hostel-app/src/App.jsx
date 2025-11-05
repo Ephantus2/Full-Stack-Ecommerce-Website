@@ -6,12 +6,11 @@ import { useState, useEffect } from "react";
 import Register from "./Register";
 import Returns from "./Returns";
 import axios from './axios'
+import { useSelector } from "react-redux";
 
 function App() {
-  const [cart, setCart] = useState(() => {
-    const storedCart = localStorage.getItem("cart");
-    return storedCart ? JSON.parse(storedCart) : [];
-  });
+
+  const cart = useSelector((state) => state.cart.cart)
   const [cartQuantity, setCartQuantity] = useState(0);
   const [totaPrice, setTotalPrice] = useState(0);
   const [orderCart, setOrderCart] = useState(() => {
@@ -19,47 +18,6 @@ function App() {
       return item ? JSON.parse(item) : [];
     })
 
-  const addToCart = (product) => {
-    setCart((c) => {
-      const existingItem = c.find(
-        (item) => item.productName == product.description
-      );
-      if (existingItem) {
-        return c.map((item) => {
-          return item.productName == product.description
-            ? { ...item, quantity: item.quantity + 1 }
-            : item;
-        });
-      } else {
-        return [
-          ...c,
-          {
-            productName: product.description,
-            image: product.image,
-            price: product.price,
-            quantity: 1,
-          },
-        ];
-      }
-    });
-  };
-
-  const deleteProduct = (item) => {
-    setCart((c) => {
-      return c
-        .map((product) => {
-          if (product.productName == item.productName) {
-            if (product.quantity > 1) {
-              return { ...product, quantity: product.quantity - 1 };
-            } else {
-              return null;
-            }
-          }
-          return product;
-        })
-        .filter((product) => product !== null);
-    });
-  };
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -247,7 +205,7 @@ function App() {
             element={
               <>
               <Header cartQuantity={cartQuantity} />
-            <Products products={products} addToCart={addToCart} />
+            <Products products={products} />
            </>
           }
           />
@@ -259,9 +217,6 @@ function App() {
               <Cart
                 totalQuantity={cartQuantity}
                 totalPrice={totaPrice}
-                cart={cart}
-                delete={deleteProduct}
-                setCart={setCart}
               />
               </>
             }

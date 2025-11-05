@@ -1,9 +1,11 @@
+import { useSelector, useDispatch } from "react-redux";
+import { deleteProduct } from "./redux/cartSlice";
 
 
 
 function CartProducts(props){
-    
-    let cart = props.cart;
+    const dispatch = useDispatch()
+    let cart = useSelector((state) => state.cart.cart);
     return(
         <>
         {
@@ -20,7 +22,7 @@ function CartProducts(props){
             <p>quantity: {item.quantity}</p>
          </div>
          <button>update</button>
-         <button onClick={() => props.delete(item)}>delete</button>
+         <button onClick={() => dispatch(deleteProduct(item))}>delete</button>
         </div>
         <div className="div3">
             <label>

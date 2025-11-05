@@ -19,8 +19,6 @@ function Cart(props) {
             <CartProducts
               shipping={shipping}
               handleShipping={handleShipping}
-              cart={props.cart}
-              delete={props.delete}
             />
           </section>
           <section className="section-2">
@@ -29,8 +27,6 @@ function Cart(props) {
               shipping={shipping}
               totalQuantity={props.totalQuantity}
               totalPrice={props.totalPrice}
-              cart={props.cart}
-              setCart={props.setCart}
             />
             <div
               className={` ${

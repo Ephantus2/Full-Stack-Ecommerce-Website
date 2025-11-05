@@ -1,6 +1,9 @@
 import React,{useEffect, useState} from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setCart } from "./redux/cartSlice";
 
  function Order(props){
+  const dispatch = useDispatch()
    let shippingPrice = props.totalQuantity > 0 && props.shipping == "delivery" ? 5 : 0;
    let taxable = props.totalPrice + shippingPrice
    let taxed = taxable * 0.1
@@ -23,8 +26,8 @@ import React,{useEffect, useState} from "react";
    let hours = date1.getHours()
    let minutes = date1.getMinutes()
 
-   let cart = props.cart
-   let setCart = props.setCart
+   let cart = useSelector((state) => state.cart.cart)
+   
   const [orderCart, setOrderCart] = useState(() => {
     let item = localStorage.getItem('order');
     return item ? JSON.parse(item) : [];
@@ -39,7 +42,7 @@ import React,{useEffect, useState} from "react";
           date: `${date}-${month}-${year}  ${hours}:${minutes}`
         }])
         localStorage.removeItem('cart')
-        setCart([])
+        dispatch(setCart([]))
       }
      
    }
