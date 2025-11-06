@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setCart } from "./redux/cartSlice";
+import axios from './axios'
 
  function Order(props){
   const dispatch = useDispatch()
@@ -32,7 +33,7 @@ import { setCart } from "./redux/cartSlice";
     let item = localStorage.getItem('order');
     return item ? JSON.parse(item) : [];
   })
-
+  
    function resetCart(){
       if(cart.length > 0){
         let cart2 = cart
@@ -45,6 +46,27 @@ import { setCart } from "./redux/cartSlice";
         dispatch(setCart([]))
       }
      
+   }
+   
+   const productIds = []
+   cart.forEach((product) => {
+    productIds.push(product.id)
+   })
+   const user = JSON.parse(localStorage.getItem('user'))
+
+   const makeOrder = async () => {
+    console.log("cart: ",cart)
+    console.log("user: ",user, "productids: ",productIds)
+    const orderDetails = {
+         id: `#${str2[0]}${str2[1]}${str2[2]}${str2[3]}-${str2[4]}${str2[5]}${str2[6]}${str2[7]}-${str2[8]}${str2[9]}${str2[10]}${str2[11]}-${str2[12]}${str2[13]}${str2[14]}${str2[15]}`,
+         user: 2,
+         product_ids: productIds
+    }
+    try{
+      const response = await axios.post('/store/orders/', orderDetails)
+    }catch(err){
+      console.log(err)
+    }
    }
 
    useEffect(() => {
@@ -66,7 +88,8 @@ import { setCart } from "./redux/cartSlice";
             <hr/>
             <h1>Total cost: &nbsp;<span>${taxable + taxed}</span></h1>
             <button onClick={() => {setVisibility()
-              resetCart()}
+              resetCart()
+            makeOrder()}
             }>Place Order</button>
           </div>
         </>

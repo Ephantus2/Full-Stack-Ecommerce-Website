@@ -2,8 +2,11 @@ import styles from "./Register.module.css";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "./axios";
+import { useDispatch } from "react-redux";
+import { setUser } from "./redux/userSlice";
 
 const Register = () => {
+  const dispatch = useDispatch()
   const [register, setRegister] = useState(false);
   const [registerData, setRegisterData] = useState({
     username: "",
@@ -38,10 +41,13 @@ const Register = () => {
           'Content-Type': 'application/json'
         }
       })
-      const m = await response.data.message
-      setMessage(m)
+      const m = await response.data
+      console.log("response: ", m)
+      setMessage(m.message)
+      
       setTimeout(() => {
        navigate('/')
+       dispatch(setUser(m.user))
       }, 1000)
     }catch(error){
        if(error.response && error.response.data){
