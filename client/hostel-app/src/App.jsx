@@ -7,6 +7,7 @@ import Register from "./Register";
 import Returns from "./Returns";
 import axios from "./axios";
 import { useSelector } from "react-redux";
+import Protected from "./Protected";
 
 function App() {
   //get cart from redux store
@@ -14,10 +15,7 @@ function App() {
 
   const [cartQuantity, setCartQuantity] = useState(0);
   const [totaPrice, setTotalPrice] = useState(0);
-  const [orderCart, setOrderCart] = useState(() => {
-    let item = localStorage.getItem("order");
-    return item ? JSON.parse(item) : [];
-  });
+
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -58,10 +56,13 @@ function App() {
           <Route
             path="/"
             element={
+              <Protected>
               <>
                 <Header cartQuantity={cartQuantity} />
                 <Products products={products} />
               </>
+              </Protected>
+             
             }
           />
           <Route
@@ -78,7 +79,7 @@ function App() {
             element={
               <>
                 <Header cartQuantity={cartQuantity} />
-                <Returns orderCart={orderCart} setOrderCart={setOrderCart} />
+                <Returns />
               </>
             }
           />

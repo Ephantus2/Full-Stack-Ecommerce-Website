@@ -8,6 +8,7 @@ from .models import Products, Order
 
 # class to get all products 
 class ProductsView(APIView):
+    permission_classes = [IsAuthenticated]
     #get all products from database
     def get(self, request):
         products = Products.objects.all()
@@ -29,8 +30,8 @@ class ProductsView(APIView):
 class OrderView(APIView):
     #get all orders from the database
     
-    def get(self, request):
-        order = Order.objects.select_related('user').prefetch_related('products').all()
+    def get(self, request, pk):
+        order = Order.objects.select_related('user').prefetch_related('products').filter(user=pk)
         serializedData = OrderSerializer(order, many=True)
         return Response(serializedData.data, status=status.HTTP_200_OK)
     

@@ -493,3 +493,9 @@ color: hsla(0, 0%, 0%, 0.8);
     pointer-events: none;
 }
 
+/* loading div */
+.loading-div{
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 40vh;
+}
