@@ -31,7 +31,7 @@ class LoginView(APIView):
         
         if user is not None:
             token = get_token_for_user(user)
-            response = Response({'message': 'logged in successfully'})
+            response = Response({'message': 'logged in successfully', "user": user.id})
             response.set_cookie(
                 key='access_token',
                 value=token['access'],

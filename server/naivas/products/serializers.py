@@ -27,10 +27,11 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ['id', 'date', 'time', 'user', 'user_details', 'products', 'product_ids']
+        read_only_fields = ['date', 'time', 'user_details', 'products']
         
         
-        def create(self, validated_data):
-            product_ids = validated_data.pop('product_ids', [])
-            order = Order.objects.create(**validated_data)
-            order.products.set(product_ids)
-            return order
+    def create(self, validated_data):
+        product_ids = validated_data.pop('product_ids', [])
+        order = Order.objects.create(**validated_data)
+        order.products.set(product_ids)
+        return order
