@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import styles from './Returns.module.css'
 import axios from './axios'
+import { useSelector } from 'react-redux'
 
 const Returns = () => {
 
@@ -26,7 +27,7 @@ const Returns = () => {
     <div id='orders' className={styles.orders2}>
        <div className={styles.ordersContainer}>
            {orderCart.map((order, index) => (
-            <div className={styles.ordersContainer2}>
+            <div key={index} className={styles.ordersContainer2}>
                 <div className={styles.ordersContainer3}>
                     <div className={styles.ordersContainer3_1}>
                         <div>Order id:</div>
@@ -39,7 +40,7 @@ const Returns = () => {
                 </div>
                 <div className={styles.ordersContainer4}>
                     {order.products.map((p, index)=> (
-                        <div className={styles.ordersContainer4_1}>
+                        <div key={index} className={styles.ordersContainer4_1}>
                             <div className={styles.divImg}>{p.productName}</div>
                             <div className={styles.divImg}><img src={`http://127.0.0.1:8000${p.image}`}/></div>
                             <div className={styles.divImg}>Price: {p.price}</div>

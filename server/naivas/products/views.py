@@ -35,6 +35,8 @@ class OrderView(APIView):
         serializedData = OrderSerializer(order, many=True)
         return Response(serializedData.data, status=status.HTTP_200_OK)
     
+
+class CreateOrder(APIView):
     #create a new orders
     
     def post(self, request):

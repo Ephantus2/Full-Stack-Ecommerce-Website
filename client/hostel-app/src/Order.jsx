@@ -9,7 +9,7 @@ import axios from './axios'
    let taxable = props.totalPrice + shippingPrice
    let taxed = taxable * 0.1
 
-   const id = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','q','r','s','t','u','v','w','x','y','z',0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+   const id = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','q','r','s','t','u','v','w','x','y','z',0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
    let random;
 
    let str = ''
@@ -59,11 +59,11 @@ import axios from './axios'
     console.log("user: ",user, "productids: ",productIds)
     const orderDetails = {
          id: `#${str2[0]}${str2[1]}${str2[2]}${str2[3]}-${str2[4]}${str2[5]}${str2[6]}${str2[7]}-${str2[8]}${str2[9]}${str2[10]}${str2[11]}-${str2[12]}${str2[13]}${str2[14]}${str2[15]}`,
-         user: 2,
+         user: user,
          product_ids: productIds
     }
     try{
-      const response = await axios.post('/store/orders/', orderDetails)
+      const response = await axios.post(`/store/orders/`, orderDetails)
     }catch(err){
       console.log(err)
     }
