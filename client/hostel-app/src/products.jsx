@@ -1,12 +1,13 @@
 import React from "react";
 import ProductsCard from "./ProductsCard.jsx";
 import SectionHeader from "./SectionHeader.jsx";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "./redux/cartSlice.js";
 
 
 function Products(props){
   const dispatch = useDispatch()
+  const products = useSelector((state) => state.products.products)
  
     
 return(
@@ -16,7 +17,7 @@ return(
           subtitle = "experience our exclusive offers"
         />
         <div className="products">
-        {props.products.map((product,index) => (
+        {products.map((product,index) => (
             <ProductsCard
             key ={index}
             image ={product.image}

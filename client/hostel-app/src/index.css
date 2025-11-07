@@ -59,7 +59,7 @@ body{
     top: 70px;
 }
  
-@media(min-width : 600px) and (max-width: 900px){
+@media(min-width : 500px) and (max-width: 900px){
     .products{
         display: grid;
         grid-template-columns: 1fr 1fr;

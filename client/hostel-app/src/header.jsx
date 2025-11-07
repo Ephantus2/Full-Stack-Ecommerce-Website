@@ -4,10 +4,15 @@ import search_icon from "./assets/search-line-icon.png";
 import cart_icon from "./assets/cart-icon.png";
 import axios from './axios'
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setProducts } from "./redux/productsSlice";
 
 function Header(props) {
   const [cartQuantity, setCartQuantity] = useState(0);
   const [hamberger, setHamberger] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('')
+  const dispatch = useDispatch()
+
   useEffect(() => {
     setCartQuantity(props.cartQuantity);
   }, [props.cartQuantity]);
@@ -36,6 +41,23 @@ function Header(props) {
     }
   }
 
+  const searchMovie = async (query = '') => {
+    try{
+      const response = await axios.get(`/store/products/?search=${query}`)
+      console.log(response)
+      dispatch(setProducts(response.data))
+    }catch(err){
+      console.log(err)
+    }
+
+  }
+
+   const handleChange = (e) =>{
+        const query = e.target.value;
+        setSearchTerm(query)
+        searchMovie(query)
+    }
+
   return (
     <>
       <div className="header-container">
@@ -45,7 +67,7 @@ function Header(props) {
           </a>
         </div>
         <div className="input-div">
-          <input type="text" placeholder="search category" />
+          <input type="text" placeholder="search category" value={searchTerm} onChange={handleChange}/>
           <button className="search-button">
             <img className="search-icon" src={search_icon} />
           </button>

@@ -6,8 +6,9 @@ import { useState, useEffect } from "react";
 import Register from "./Register";
 import Returns from "./Returns";
 import axios from "./axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Protected from "./Protected";
+import { setProducts } from "./redux/productsSlice";
 
 function App() {
   //get cart from redux store
@@ -16,6 +17,7 @@ function App() {
   const [cartQuantity, setCartQuantity] = useState(0);
   const [totaPrice, setTotalPrice] = useState(0);
 
+  const dispatch = useDispatch();
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -31,14 +33,14 @@ function App() {
     setTotalPrice(total);
   }, [cart]);
 
-  const [products, setProducts] = useState([]);
+  const products = useSelector((state) => state.products.products);
 
   //fetch all products from the database
   const getProductsFromDb = async () => {
     try {
       const response = await axios.get("/store/products/");
       const data = await response.data;
-      setProducts(data);
+      dispatch(setProducts(data));
     } catch (err) {
       console.error(err);
     }
@@ -57,12 +59,11 @@ function App() {
             path="/"
             element={
               <Protected>
-              <>
-                <Header cartQuantity={cartQuantity} />
-                <Products products={products} />
-              </>
+                <>
+                  <Header cartQuantity={cartQuantity} />
+                  <Products />
+                </>
               </Protected>
-             
             }
           />
           <Route

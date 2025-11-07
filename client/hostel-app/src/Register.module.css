@@ -187,3 +187,16 @@ display: none;
     margin-bottom: 10px;
     text-align: center;
 }
+
+@media(max-width: 600px){
+    .container1{
+        padding: 10px;
+    }
+    .container{
+        width: 100%;
+        flex-direction: column;
+    }
+    .div22{
+        margin-top: 10px;
+    }
+}
