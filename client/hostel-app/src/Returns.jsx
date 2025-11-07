@@ -14,7 +14,7 @@ const Returns = () => {
         const data = await response.data
         setOrderCart(data)
         }catch(err){
-            console.log(err)
+            alert("server not running")
         }
     }
 

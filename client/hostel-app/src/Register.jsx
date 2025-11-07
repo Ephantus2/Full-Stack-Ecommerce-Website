@@ -23,6 +23,8 @@ const Register = () => {
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({});
   const [loginError, setLoginError] = useState('')
+  const [loginMessage, setLoginMessage] = useState('')
+
   const navigate = useNavigate();
 
   const handleLoginChange = (e) => {
@@ -43,8 +45,7 @@ const Register = () => {
         }
       })
       const m = await response.data
-      console.log("response: ", m)
-      setMessage(m.message)
+      setLoginMessage(m.message)
       
       setTimeout(() => {
        navigate('/')
@@ -138,9 +139,9 @@ const Register = () => {
               <input type="text" placeholder="username" name="username" value={loginData.username} onChange={handleLoginChange}/>
               <input type="password" placeholder="password" name="password" value={loginData.password} onChange={handleLoginChange} />
               <p>Forgot Password?</p>
-               {message && (
+               {loginMessage && (
                 <div className={styles.errors} style={{ color: "green" }}>
-                  {message}
+                  {loginMessage}
                 </div>
               )}
               {loginError && (

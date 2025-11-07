@@ -42,7 +42,7 @@ function App() {
       const data = await response.data;
       dispatch(setProducts(data));
     } catch (err) {
-      console.error(err);
+      alert("server not running");
     }
   };
 

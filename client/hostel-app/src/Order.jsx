@@ -55,8 +55,6 @@ import axios from './axios'
    const user = JSON.parse(localStorage.getItem('user'))
 
    const makeOrder = async () => {
-    console.log("cart: ",cart)
-    console.log("user: ",user, "productids: ",productIds)
     const orderDetails = {
          id: `#${str2[0]}${str2[1]}${str2[2]}${str2[3]}-${str2[4]}${str2[5]}${str2[6]}${str2[7]}-${str2[8]}${str2[9]}${str2[10]}${str2[11]}-${str2[12]}${str2[13]}${str2[14]}${str2[15]}`,
          user: user,
@@ -65,13 +63,12 @@ import axios from './axios'
     try{
       const response = await axios.post(`/store/orders/`, orderDetails)
     }catch(err){
-      console.log(err)
+      alert("server not running")
     }
    }
 
    useEffect(() => {
       let orderString = JSON.stringify(orderCart)
-      console.log(orderCart)
       localStorage.setItem('order',orderString)
       
    }, [orderCart])

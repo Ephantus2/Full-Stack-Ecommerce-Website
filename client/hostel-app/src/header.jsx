@@ -44,10 +44,9 @@ function Header(props) {
   const searchMovie = async (query = '') => {
     try{
       const response = await axios.get(`/store/products/?search=${query}`)
-      console.log(response)
       dispatch(setProducts(response.data))
     }catch(err){
-      console.log(err)
+      alert("server not running")
     }
 
   }
