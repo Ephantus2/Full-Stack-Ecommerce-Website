@@ -22,6 +22,7 @@ const Register = () => {
 
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({});
+  const [loginError, setLoginError] = useState('')
   const navigate = useNavigate();
 
   const handleLoginChange = (e) => {
@@ -51,7 +52,7 @@ const Register = () => {
       }, 1000)
     }catch(error){
        if(error.response && error.response.data){
-        setErrors(error.response.data)
+        setLoginError(error.response.data.error)
        }else{
         setMessage('something went wrong')
        }
@@ -66,7 +67,8 @@ const Register = () => {
           "Content-Type": "application/json",
         },
       });
-      setMessage(await response.data.message);
+      const m = await response.data
+      setMessage(m.message);
       //setTimeout(() => {
       //  navigate('/auth/login')
       //}, 1000)
@@ -141,9 +143,9 @@ const Register = () => {
                   {message}
                 </div>
               )}
-              {errors.non_field_errors && (
+              {loginError && (
                 <div className={styles.errors} style={{ color: "red" }}>
-                  {errors.non_field_errors[0]}
+                  {loginError}
                 </div>
               )}
               <button type="submit">LogIn</button>

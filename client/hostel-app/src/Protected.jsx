@@ -9,7 +9,7 @@ const Protected = ({children}) => {
   .catch(() => setAuth(false))
 
   if(auth === null) return <div className='loading-div'>loading...</div>
-  if(auth === false) return <Navigate to='auth/login/' />
+  if(auth === false) return <Navigate to='/auth/login/' replace />
   return children
 }
 

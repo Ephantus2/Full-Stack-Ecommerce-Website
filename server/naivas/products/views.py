@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from .serializers import ProductSerializer, OrderSerializer
 from .models import Products, Order
+from django.db.models import Q
 
 # class to get all products 
 class ProductsView(APIView):
@@ -13,7 +14,7 @@ class ProductsView(APIView):
     def get(self, request):
         search_query = request.GET.get('search', '')
         if search_query:
-            products = Products.objects.filter(category__icontains=search_query)
+            products = Products.objects.filter(Q(category__icontains=search_query) | Q(description__icontains=search_query))
         else:
             products = Products.objects.all()
         serializedData = ProductSerializer(products, many=True)
@@ -32,7 +33,8 @@ class ProductsView(APIView):
 
 # class to get all orders
 class OrderView(APIView):
-    #get all orders from the database
+    #get all orders from the database  
+    permission_classes = [IsAuthenticated] 
     
     def get(self, request, pk):
         order = Order.objects.select_related('user').prefetch_related('products').filter(user=pk)
@@ -42,6 +44,7 @@ class OrderView(APIView):
 
 class CreateOrder(APIView):
     #create a new orders
+    permission_classes = [IsAuthenticated]
     
     def post(self, request):
         data = request.data

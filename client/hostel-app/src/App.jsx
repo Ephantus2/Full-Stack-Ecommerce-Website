@@ -33,7 +33,7 @@ function App() {
     setTotalPrice(total);
   }, [cart]);
 
-  const products = useSelector((state) => state.products.products);
+  const user = useSelector((state) => state.user.user);
 
   //fetch all products from the database
   const getProductsFromDb = async () => {
@@ -49,7 +49,7 @@ function App() {
   // on load display all products
   useEffect(() => {
     getProductsFromDb();
-  }, []);
+  }, [user]);
 
   return (
     <>
@@ -69,19 +69,25 @@ function App() {
           <Route
             path="/cart"
             element={
-              <>
+              <Protected>
+                <>
                 <Header cartQuantity={cartQuantity} />
                 <Cart totalQuantity={cartQuantity} totalPrice={totaPrice} />
               </>
+              </Protected>
+              
             }
           />
           <Route
             path="orders/"
             element={
-              <>
+              <Protected>
+                <>
                 <Header cartQuantity={cartQuantity} />
                 <Returns />
               </>
+              </Protected>
+              
             }
           />
           <Route path="auth/login" element={<Register />} />
