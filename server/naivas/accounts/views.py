@@ -37,14 +37,14 @@ class LoginView(APIView):
                 value=token['access'],
                 httponly=True,
                 samesite='Lax',
-                secure=False
+                secure=True
             )
             response.set_cookie(
                 key='refresh_token',
                 value=token['refresh'],
                 httponly=True,
                 samesite='Lax',
-                secure=False
+                secure=True
             )
             return response
         else:

@@ -32,7 +32,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'fallback-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['your-backend.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -140,6 +140,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -147,7 +148,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000'
+    'full-stack-ecommerce-website-green.vercel.app'
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -157,7 +158,7 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": True,
     "AUTH_COOKIE": "access_token",  # Cookie name
-    "AUTH_COOKIE_SECURE": False,    # Set to True in production (HTTPS)
+    "AUTH_COOKIE_SECURE": True,    # Set to True in production (HTTPS)
     "AUTH_COOKIE_HTTP_ONLY": True,
     "AUTH_COOKIE_PATH": "/",
     "AUTH_COOKIE_SAMESITE": "Lax",
