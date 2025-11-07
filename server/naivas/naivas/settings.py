@@ -32,7 +32,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'fallback-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['your-backend.onrender.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['https://full-stack-ecommerce-website-aeb0.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
