@@ -26,8 +26,8 @@ urlpatterns = [
     path('store/', include('products.urls'))
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
-else:
-    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
-    print("MEDIA_ROOT exists:", os.path.exists(os.path.join(settings.MEDIA_ROOT, "photos", "duvet.jpg")))
+from django.views.static import serve
+
+urlpatterns += [
+    path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT}),
+]
