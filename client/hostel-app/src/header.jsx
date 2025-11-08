@@ -113,7 +113,7 @@ function Header(props) {
             <a href="/">Home</a>
           </div>
           <div className="h_div">
-            <a href="#products">Products</a>
+            <a href="/">Products</a>
           </div>
           <div className="h_div">
             <a href="cart">Cart</a>

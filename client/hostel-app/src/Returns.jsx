@@ -35,7 +35,7 @@ const Returns = () => {
                         </div>
                     <div className={styles.ordersContainer3_1}>
                         <div>Order Date:</div>
-                        <div>{order.date} {order.time}</div>
+                        <div>{order.date} {order.time.split('.')[0]}</div>
                         </div>
                 </div>
                 <div className={styles.ordersContainer4}>

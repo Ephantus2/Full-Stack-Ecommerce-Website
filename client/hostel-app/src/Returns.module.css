@@ -57,7 +57,10 @@
         top: 135px;
     }
     .ordersContainer4{
-    grid-template-columns: repeat(2, 155px);
+    grid-template-columns: repeat(2, 150px);
+}
+.ordersContainer3{
+    flex-direction: column;
 }
 }
 
