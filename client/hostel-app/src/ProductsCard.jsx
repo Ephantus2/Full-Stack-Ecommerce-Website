@@ -39,7 +39,7 @@ function ProductsCard(props){
     return(
         
         <div className="products-card">
-            <img className="photo" src={`http://127.0.0.1:8000${props.image}`}/>
+            <img className="photo" src={`https://full-stack-ecommerce-website-aeb0.onrender.com${props.image}`}/>
             <h4>{props.description}</h4>
             <p>{props.offer}</p>
             <img className="rating" src={srcs[props.rating]}/>
