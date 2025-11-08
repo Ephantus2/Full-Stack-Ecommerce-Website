@@ -62,6 +62,9 @@
 .ordersContainer3{
     flex-direction: column;
 }
+.ordersContainer3_1{
+    margin-left: 0;
+}
 }
 
 @media(min-width: 601px) and (max-width: 800px){
