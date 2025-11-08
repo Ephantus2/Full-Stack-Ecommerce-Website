@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404
 from .serializers import ProductSerializer, OrderSerializer
 from .models import Products, Order
 from django.db.models import Q
+import os
 
 # class to get all products 
 class ProductsView(APIView):
@@ -17,6 +18,8 @@ class ProductsView(APIView):
             products = Products.objects.filter(Q(category__icontains=search_query) | Q(description__icontains=search_query))
         else:
             products = Products.objects.all()
+            print("MEDIA_ROOT exists:", os.path.exists(os.path.join(settings.MEDIA_ROOT, "photos", "duvet.jpg")))
+
         serializedData = ProductSerializer(products, many=True)
         return Response(serializedData.data, status=status.HTTP_200_OK)
     
