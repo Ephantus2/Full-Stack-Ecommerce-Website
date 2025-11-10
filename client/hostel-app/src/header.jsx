@@ -61,7 +61,7 @@ function Header(props) {
     <>
       <div className="header-container">
         <div className="naivas-div">
-          <a href="/">
+          <a href="/dashboard">
             <img className="naivas-icon" src={naivas_logo} />
           </a>
         </div>
@@ -110,10 +110,10 @@ function Header(props) {
           </button>
           </div>
           <div className="h_div h_div1">
-            <a href="/">Home</a>
+            <a href="/dashboard">Home</a>
           </div>
           <div className="h_div">
-            <a href="/">Products</a>
+            <a href="/dashboard">Products</a>
           </div>
           <div className="h_div">
             <a href="cart">Cart</a>
