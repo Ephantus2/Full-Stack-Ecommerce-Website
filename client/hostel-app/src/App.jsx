@@ -1,6 +1,6 @@
 import Products from "./products";
 import Header from "./header";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Cart from "./Cart";
 import { useState, useEffect } from "react";
 import Register from "./Register";
@@ -55,8 +55,9 @@ function App() {
     <>
       <Router>
         <Routes>
+          <Route path="/" element={<Navigate to="/auth/login" replace />} />
           <Route
-            path="/"
+            path="/dashboard"
             element={
               <Protected>
                 <>

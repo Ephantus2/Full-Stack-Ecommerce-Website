@@ -48,7 +48,7 @@ const Register = () => {
       setLoginMessage(m.message)
       
       setTimeout(() => {
-       navigate('/')
+       navigate('/dashboard')
        dispatch(setUser(m.user))
       }, 1000)
     }catch(error){
