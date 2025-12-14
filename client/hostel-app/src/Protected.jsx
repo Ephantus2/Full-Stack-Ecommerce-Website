@@ -8,7 +8,7 @@ const Protected = ({children}) => {
   .then(() => setAuth(true))
   .catch(() => setAuth(false))
 
-  if(auth === null) return <div className='loading-div'>loading...</div>
+  if(auth === null) return <div className='loading-div'></div>
   if(auth === false) return <Navigate to='/auth/login/' replace />
   return children
 }
