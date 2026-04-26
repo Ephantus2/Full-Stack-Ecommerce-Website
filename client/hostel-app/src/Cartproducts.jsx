@@ -11,7 +11,7 @@ function CartProducts(props) {
           <div className="cart-orders-section">
             <div className="cart-image-container">
               <div>
-                <img src={`https://full-stack-ecommerce-website-aeb0.onrender.com${item.image}`} />
+                <img src={`https://full-stack-ecommerce-website-aeb0.onrender.com${item.image.replace("/media", "", 1)}`} />
               </div>
             </div>
             <div className="div2">

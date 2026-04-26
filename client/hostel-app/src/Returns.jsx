@@ -42,7 +42,7 @@ const Returns = () => {
                     {order.products.map((p, index)=> (
                         <div key={index} className={styles.ordersContainer4_1}>
                             <div className={styles.divImg}>{p.productName}</div>
-                            <div className={styles.divImg}><img src={`https://full-stack-ecommerce-website-aeb0.onrender.com${p.image}`}/></div>
+                            <div className={styles.divImg}><img src={`https://full-stack-ecommerce-website-aeb0.onrender.com${p.image.replace("/media", "", 1)}`}/></div>
                             <div className={styles.divImg}>Price: {p.price}</div>
                             <div className={styles.divImg}>Quantity: {p.quantity}</div>
                         </div>
