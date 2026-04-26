@@ -241,7 +241,7 @@ const Register = () => {
                   {message}
                 </div>
               )}
-              <button type="submit">{Loading ? "Registering..." : "Register"}</button>
+              <button type="submit">{loading ? "Registering..." : "Register"}</button>
             </form>
           </div>
         </div>
