@@ -24,6 +24,7 @@ const Register = () => {
   const [errors, setErrors] = useState({});
   const [loginError, setLoginError] = useState('')
   const [loginMessage, setLoginMessage] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate();
 
@@ -39,6 +40,7 @@ const Register = () => {
   const handleLogin = async (e) => {
     e.preventDefault()
     try{
+      setLoading(true)
       const response = await axios.post('/accounts/login/', loginData, {
         headers: {
           'Content-Type': 'application/json'
@@ -57,12 +59,15 @@ const Register = () => {
        }else{
         setMessage('something went wrong')
        }
+    }finally{
+      setLoading(false)
     }
   }
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true)
       const response = await axios.post("/accounts/register/", registerData, {
         headers: {
           "Content-Type": "application/json",
@@ -79,6 +84,8 @@ const Register = () => {
       } else {
         setMessage("something went wrong");
       }
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -149,7 +156,7 @@ const Register = () => {
                   {loginError}
                 </div>
               )}
-              <button type="submit">LogIn</button>
+              <button type="submit">{loading ? "Logging in..." : "Login"}</button>
             </form>
           </div>
 
@@ -234,7 +241,7 @@ const Register = () => {
                   {message}
                 </div>
               )}
-              <button type="submit">Register</button>
+              <button type="submit">{Loading ? "Registering..." : "Register"}</button>
             </form>
           </div>
         </div>
