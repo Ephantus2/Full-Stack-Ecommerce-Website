@@ -36,7 +36,7 @@ class Command(BaseCommand):
 
                 if current_name in updates:
                     new_name = updates[current_name]
-                    product.image.name = f"media/photos/{new_name}"
+                    product.image.name = f"photos/{new_name}"
                     product.save()
                     updated += 1
 
