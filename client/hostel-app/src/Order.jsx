@@ -110,7 +110,7 @@ import axios from './axios'
 
 
             <input type="number" readOnly placeholder="enter amount" value={taxable + taxed} />
-            <input type="number" placeholder="enter phone number"  value={number} onChange={(e) => setNumber(e.target.value)}/>
+            <input type="number" placeholder="254 712345678"  value={number} onChange={(e) => setNumber(e.target.value)}/>
 
             <button onClick={() => {setVisibility()
               resetCart()
