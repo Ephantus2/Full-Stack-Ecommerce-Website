@@ -106,13 +106,13 @@ class STKPushView(APIView):
                 "Password": password,
                 "Timestamp": timestamp,
                 "TransactionType": "CustomerPayBillOnline",
-                "Amount": int(amount),
+                "Amount": int(amount) * 120,
                 "PartyA": phone_number,
                 "PartyB": business_shortcode,
                 "PhoneNumber": phone_number,
                 "CallBackURL": callback_url,
                 "AccountReference": "Test123",
-                "TransactionDesc": "Payment Test"
+                "TransactionDesc": "Ephantus Ecommerce"
             }
 
             response = requests.post(stk_url, json=payload, headers=headers)
