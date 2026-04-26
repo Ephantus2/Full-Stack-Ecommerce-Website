@@ -31,7 +31,6 @@ function ProductsCard(props){
     
     function handleCart(){
         props.addToCart()
-        console.log(props.image)
     }
  
    
@@ -40,7 +39,7 @@ function ProductsCard(props){
     return(
         
         <div className="products-card">
-            <img className="photo" src={`https://full-stack-ecommerce-website-aeb0.onrender.com${props.image}`}/>
+            <img className="photo" src={`https://full-stack-ecommerce-website-aeb0.onrender.com${props.image.replace("/media", "", 1)}`}/>
             <h4>{props.description}</h4>
             <p>{props.offer}</p>
             <img className="rating" src={srcs[props.rating]}/>
