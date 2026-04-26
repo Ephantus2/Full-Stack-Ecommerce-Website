@@ -4,6 +4,10 @@ import { setCart } from "./redux/cartSlice";
 import axios from './axios'
 
  function Order(props){
+
+  const [number, setNumber] = useState('')
+  const [amount, setAmount] = useState('')
+
   const dispatch = useDispatch()
    let shippingPrice = props.totalQuantity > 0 && props.shipping == "delivery" ? 5 : 0;
    let taxable = props.totalPrice + shippingPrice
@@ -75,6 +79,25 @@ import axios from './axios'
    function setVisibility(){
       return props.totalQuantity > 0 ? props.setVisible(true) : props.setVisible(false)
    }
+
+   const sendRequest = async (amount, number) => {
+    const details = {
+            amount,
+            number
+        }
+    try{
+        const response = await fetch('https://full-stack-ecommerce-website-aeb0.onrender.com/mpesa/stk-push/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(details)
+        })
+    }catch(err){
+        console.log(err)
+    }
+   }
+
     return(
         <>
           <div className="total-container">
@@ -84,9 +107,16 @@ import axios from './axios'
             <p>Estimated tax(10%) : &nbsp;   <span>${taxed}</span></p>
             <hr/>
             <h1>Total cost: &nbsp;<span>${taxable + taxed}</span></h1>
+
+
+            <input type="number" readOnly placeholder="enter amount" value={taxable + taxed} />
+            <input type="number" placeholder="enter phone number"  value={number} onChange={setNumber(e.target.value)}/>
+
             <button onClick={() => {setVisibility()
               resetCart()
-            makeOrder()}
+            makeOrder()
+            sendRequest(taxed + taxable, number)
+          }
             }>Place Order</button>
           </div>
         </>
