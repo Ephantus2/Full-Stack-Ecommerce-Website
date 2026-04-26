@@ -23,7 +23,8 @@ import os
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
-    path('store/', include('products.urls'))
+    path('store/', include('products.urls')),
+    path('mpesa/', include('daraja.urls'))
 ]
 
 from django.views.static import serve
