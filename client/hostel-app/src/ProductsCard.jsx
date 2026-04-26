@@ -31,6 +31,7 @@ function ProductsCard(props){
     
     function handleCart(){
         props.addToCart()
+        console.log(props.image)
     }
  
    
