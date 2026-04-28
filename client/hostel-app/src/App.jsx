@@ -9,6 +9,7 @@ import axios from "./axios";
 import { useSelector, useDispatch } from "react-redux";
 import Protected from "./Protected";
 import { setProducts } from "./redux/productsSlice";
+import NotFound from "./NotFound";
 
 function App() {
   //get cart from redux store
@@ -93,6 +94,7 @@ function App() {
           />
           <Route path="auth/login" element={<Register />} />
           <Route path="auth/register" element={<Register />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </>
